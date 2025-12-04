@@ -95,32 +95,51 @@ const submitBtn = document.getElementById("submit");
 let currentQuiz = 0;
 let score = 0;
 
-function loadQuiz () {
-    const currentQuizData = quizData[currentQuiz];
-    questionEl.innerHTML = currentQuizData.question;
-    a_text.innerHTML =currentQuizData.a
-    b_text.innerHTML =currentQuizData.b
-    c_text.innerHTML =currentQuizData.c
-    d_text.innerHTML =currentQuizData.d
+function deselectAnswers() {
+  answerEls.forEach((answerEl) => (answerEl.checked = false));
 }
 
-loadQuiz()
+function loadQuiz () {
+  deselectAnswers()
+    const currentQuizData = quizData[currentQuiz];
+    questionEl.innerHTML = currentQuizData.question;
+    a_text.innerHTML = currentQuizData.a;
+    b_text.innerHTML = currentQuizData.b;
+    c_text.innerHTML = currentQuizData.c;
+    d_text.innerHTML = currentQuizData.d;
+}
+
+loadQuiz();
 
 function getSelected () {
     let answer;
 
-    answerEls.forEach((answer1) => {
-        if (answer1.checked) {
+    answerEls.forEach((answerEl) => {
+        if (answerEl.checked) {
             answer = answerEl.id;
         }
-    })
-    return answer
+    });
+    return answer;
 }
 
 submitBtn.addEventListener("click", () => {
     const answer = getSelected();
     if (!answer) {
-        alert("Please select an answer")
-    };
+        alert("Please select an answer");
+    }
 
+    if (answer === quizData[currentQuiz].correct) {
+      score++;
+    }
+
+    currentQuiz++;
+  if (currentQuiz < quizData.length) {
+    loadQuiz();
+  } else {
+    quiz.innerHTML = `
+    <h2>You answered ${score} / ${quizData.length} questions correctly</h2>
+    <h2>${score < 5 ? "Failed !!!" : "Passed"}</h2>
+    <button onclick= "location.reload()">Reload</button>
+    `;
+  }
 })

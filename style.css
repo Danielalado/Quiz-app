@@ -28,10 +28,10 @@ ul li{
 }
 
 button{
-    width: 35%;
+    width: 25%;
     margin: auto;
-    padding: 0.5rem;
-    border-radius: 1rem;
+    padding:1rem;
+    border-radius: 0.5rem;
     border-width: thin;
     background-color: blue;
     color: white;
@@ -39,8 +39,6 @@ button{
 
 button:hover{
     cursor: pointer;
-    /* background-color: darkgoldenrod; */
-    /* color: white; */
     transition: 0.3s;
 }
 
