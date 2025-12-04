@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+.quiz-container{
+    margin: 3rem auto;
+    padding: 2rem; 
+    box-shadow: 0 0 0.7rem rgba(8, 8, 8, 0.5);
+    border-radius: 1rem;width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}                                                                          
+h2{
+    margin-bottom: 1rem;
+}
+
+ul{
+    margin-bottom: 1.5rem; 
+}
+
+ul li{
+    list-style: none;
+    margin-bottom: 0.5rem;
+}
+
+button{
+    width: 35%;
+    margin: auto;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border-width: thin;
+    background-color: blue;
+    color: white;
+}
+
+button:hover{
+    cursor: pointer;
+    /* background-color: darkgoldenrod; */
+    /* color: white; */
+    transition: 0.3s;
+}
+
