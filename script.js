@@ -103,6 +103,7 @@ function loadQuiz () {
   deselectAnswers()
     const currentQuizData = quizData[currentQuiz];
     questionEl.innerHTML = currentQuizData.question;
+    a_text.innerHTML = currentQuizData.a;
     b_text.innerHTML = currentQuizData.b;
     c_text.innerHTML = currentQuizData.c;
     d_text.innerHTML = currentQuizData.d;
